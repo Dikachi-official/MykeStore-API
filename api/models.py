@@ -13,7 +13,7 @@ class Category(models.Model):
     title = models.CharField(max_length=200)
     id = models.UUIDField(default=uuid.uuid4, editable=False,
                           primary_key=True, unique=True)
-    #slug = models.SlugField(default=None, null=True)
+    slug = models.SlugField(default=None, null=True, blank =True)
     featured_products = models.OneToOneField(
         'Product', on_delete=models.CASCADE, blank=True, null=True, related_name='featured_product')
     icon = models.CharField(
@@ -31,13 +31,12 @@ class Product(models.Model):
                           primary_key=True, unique=True)
     name = models.CharField(max_length=200)
     price = models.IntegerField()
-    picture = models.ImageField(upload_to="img", default="")
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, blank=True, null=True, related_name='products')
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(
         upload_to='img', blank=True, null=True, default='')
-    #slug = models.SlugField(default=None)
+    slug = models.SlugField(default=None, null=True, blank=True)
     inventory = models.IntegerField(default=5)
 
     def __str__(self):
