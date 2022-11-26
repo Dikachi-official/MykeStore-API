@@ -14,7 +14,5 @@
 <p><i class="ri-account-circle-fill"></i>Dikachi-official</p>
 <h2>About</h2>
 <li>Implemented using Generic API view</li>
-<li>Added Cors Headers to include Cart features</li>
-<li>Integrated User Authentication with Json Web Token</li>
 <h2 align="center">Show your support</h2>
 <p align="right">Leave a <strong><i>star</i></strong> for the project</p> 
