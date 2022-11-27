@@ -7,7 +7,7 @@ from rest_framework.generics import RetrieveUpdateDestroyAPIView
 from rest_framework.viewsets import ModelViewSet
 
 # Create your views here.
-class ProductsViewSet(ModelViewSet):
+class ProductViewSet(ModelViewSet):
     queryset= Product.objects.all()
     serializer_class = ProductSerializer
 
