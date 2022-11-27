@@ -11,3 +11,11 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = (
             'name', 'price', 'description', 'inventory'
         )
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = (
+            'title', 'featured_products'
+        )
