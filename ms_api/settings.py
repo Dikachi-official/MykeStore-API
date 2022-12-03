@@ -104,6 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
+REST_FRAMEWORK ={
+    'PAGE_SIZE':3
+}
+
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
