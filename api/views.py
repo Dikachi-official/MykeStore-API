@@ -9,7 +9,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .filter import ProductFilter
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin,DestroyModelMixin
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 
 
@@ -43,6 +43,6 @@ class ReviewViewSet(ModelViewSet):
 
 
 
-class CartViewSet(CreateModelMixin,RetrieveModelMixin,GenericViewSet):
+class CartViewSet(CreateModelMixin,RetrieveModelMixin,DestroyModelMixin,GenericViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
