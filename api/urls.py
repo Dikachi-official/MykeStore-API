@@ -18,15 +18,19 @@ product_router.register('reviews', views.ReviewViewSet, basename="product-review
 # CART PARENT ROUTER
 router.register('carts', views.CartViewSet)  
 cart_router = routers.NestedDefaultRouter(router, 'carts', lookup="cart")
+cart_router.register("items", views.CartItemViewSet, basename = "cart-items")
 
 
 
 urlpatterns = [
-    # URL ENDPOINT:localhost/api/product/id
+    # URL ENDPOINT:localhost/api/product/product-uuid
     path('', include(router.urls)),
 
-    # URL ENDPOINT:localhost/api/products/id/reviews
-    path('', include(product_router.urls))
+    # URL ENDPOINT:localhost/api/products/product-uuid/reviews
+    path('', include(product_router.urls)),
+
+    #URL ENDPOINT:localhost/api/carts/cart-uuid/items
+    path('', include(cart_router.urls))
 ]    
 
 #urlpatterns = [
