@@ -55,10 +55,8 @@ class Review(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(
-        Product, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(
-        upload_to='img', default=" ", null=True, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to='img', default=" ", null=True, blank=True)
 
 
 class Cart(models.Model):
