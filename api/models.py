@@ -66,12 +66,12 @@ class Cart(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.cart_id)
+        return str(self.id)
 
 
 class CartItem(models.Model):
     cart = models.ForeignKey(
-        Cart, on_delete=models.CASCADE, related_name='items', null=True, blank=True)
+        Cart, on_delete=models.CASCADE, related_name="items", null=True, blank=True)
     product = models.ForeignKey(
         Product, on_delete=models.CASCADE, related_name='cartitems', blank=True, null=True)
     quantity = models.IntegerField(default=0)
