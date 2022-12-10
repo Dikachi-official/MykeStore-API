@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from . models import *
-from .serializers import ProductSerializer, CategorySerializer, ReviewSerializer, CartSerializer, CartItemSerializer
+from .serializers import ProductSerializer, CategorySerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from rest_framework.response import Response
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.generics import RetrieveUpdateDestroyAPIView
@@ -51,7 +51,19 @@ class CartViewSet(CreateModelMixin,RetrieveModelMixin,DestroyModelMixin,GenericV
 
 
 class CartItemViewSet(ModelViewSet):
+    http_method_names = ["get", "post", "patch", "delete"]
+
     def get_queryset(self):
         return CartItem.objects.filter(cart_id = self.kwargs["cart_pk"])
 
-    serializer_class = CartItemSerializer    
+    def get_serializer(self):
+        if self.request.method == "POST":
+            return AddCartItemSerializer
+
+        elif self.request.method == "PATCH":
+            return UpdateCartItemSerializer
+
+        return CartItemSerializer
+
+    def get_serializer_context(self):
+        return {"cart_id": self.kwargs["cart_pk"]}        
