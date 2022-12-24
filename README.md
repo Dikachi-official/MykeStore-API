@@ -1,5 +1,5 @@
 # MykeStore-API
- MykStore Ecommerce API built on Django rest framework
+ MykeStore Ecommerce API built on Django rest framework
 <strong><i><p>Major Languages</p><i></strong>
 <input type="checkbox"><label for="title">PYTHON</label><br>
 <hr>
